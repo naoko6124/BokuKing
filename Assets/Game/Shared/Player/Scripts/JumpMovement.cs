@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -38,10 +39,12 @@ namespace Game.Shared.Player.Scripts
             _input.Movement.Touch.performed += StartTouch;
             _input.Movement.Touch.canceled += EndTouch;
         }
-
+        
         public void OnDisable()
         {
+            _input.Movement.Disable();
             _input.Disable();
+            _input.Dispose();
             _input = null;
         }
 
@@ -74,13 +77,16 @@ namespace Game.Shared.Player.Scripts
 
         private void StartTouch(InputAction.CallbackContext context)
         {
+            if (!gameObject.activeInHierarchy) return;
+            
             _holding = true;
             timer = 0f;
             animator.SetBool("Crouch", true);
         }
         private void EndTouch(InputAction.CallbackContext context)
         {
-            animator.SetBool("Crouch", false);
+            if (!gameObject.activeInHierarchy) return;
+            
             _holding = false;
             Vector2 screenInput = _input.Movement.Position.ReadValue<Vector2>();
             moveInput = Camera.main.ScreenToWorldPoint(screenInput);
@@ -88,6 +94,16 @@ namespace Game.Shared.Player.Scripts
             direction.Normalize();
             timer = Mathf.Clamp(timer, 0f, timerMax) / timerMax;
             _rigidbody.AddForce(direction * jumpForce * timer, ForceMode2D.Impulse);
+
+            StartCoroutine(WaitAndDo(0.1f, () =>
+            {
+                animator.SetBool("Crouch", false);
+            }));
+        }
+        
+        IEnumerator WaitAndDo (float time, Action action) {
+            yield return new WaitForSeconds (time);
+            action();
         }
     }
 }
