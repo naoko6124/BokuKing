@@ -123,18 +123,43 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &243771854 stripped
+--- !u!1 &353877326
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1586859935794731058, guid: b0259473ad14ffa45b3c8b124e92489e, type: 3}
-  m_PrefabInstance: {fileID: 874819517}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &243771857
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 353877329}
+  - component: {fileID: 353877328}
+  - component: {fileID: 353877327}
+  m_Layer: 0
+  m_Name: GameOver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &353877327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353877326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d565bb4353c85d449c6935b09d6cac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &353877328
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243771854}
+  m_GameObject: {fileID: 353877326}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -157,7 +182,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -171,35 +196,23 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 8, y: 4}
   m_EdgeRadius: 0
---- !u!50 &243771858
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!4 &353877329
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243771854}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: bcdf4326fc69e3e478689eebef67b0a1, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  m_GameObject: {fileID: 353877326}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +405,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7354136843040773136, guid: b0259473ad14ffa45b3c8b124e92489e, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354136843040773136, guid: b0259473ad14ffa45b3c8b124e92489e, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8689912846147006756, guid: b0259473ad14ffa45b3c8b124e92489e, type: 3}
       propertyPath: bouncy
       value: 
@@ -411,13 +432,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1586859935794731058, guid: b0259473ad14ffa45b3c8b124e92489e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 243771858}
-    - targetCorrespondingSourceObject: {fileID: 1586859935794731058, guid: b0259473ad14ffa45b3c8b124e92489e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 243771857}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0259473ad14ffa45b3c8b124e92489e, type: 3}
 --- !u!1 &1817381529
 GameObject:
@@ -547,3 +562,4 @@ SceneRoots:
   - {fileID: 472719096338496561}
   - {fileID: 779789983}
   - {fileID: 1817381531}
+  - {fileID: 353877329}

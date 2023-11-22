@@ -18,12 +18,12 @@ namespace Framework.Game
         public float levelSpeed;
 
         public int score;
-        private float fScore = 0f;
+        private float _score = 0f;
 
         private void Update()
         {
-            fScore += Time.deltaTime * levelSpeed;
-            score = Mathf.FloorToInt(fScore);
+            _score += Time.deltaTime * levelSpeed;
+            score = Mathf.FloorToInt(_score);
         }
     }
 }

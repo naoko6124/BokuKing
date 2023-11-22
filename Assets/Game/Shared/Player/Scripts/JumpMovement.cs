@@ -6,6 +6,9 @@ namespace Game.Shared.Player.Scripts
 {
     public class JumpMovement : MonoBehaviour
     {
+        [Header("Animation")]
+        public Animator animator;
+        
         [Header("Jump")]
         public float jumpForce;
         public float timerMax;
@@ -22,10 +25,12 @@ namespace Game.Shared.Player.Scripts
         
         private GameInput _input;
         private Rigidbody2D _rigidbody;
+        private SpriteRenderer _sprite;
         
         public void OnEnable()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+            _sprite = animator.gameObject.GetComponent<SpriteRenderer>();
             
             _input = new GameInput();
             _input.Enable();
@@ -58,12 +63,20 @@ namespace Game.Shared.Player.Scripts
                 _rigidbody.gravityScale = 5.0f;
                 _rigidbody.sharedMaterial = noBouncy;
             }
+            
+            animator.SetFloat("Speed", _rigidbody.velocity.y);
+            
+            if (_rigidbody.velocity.x > 0f)
+                _sprite.flipX = false;
+            if (_rigidbody.velocity.x < 0f)
+                _sprite.flipX = true;
         }
 
         private void StartTouch(InputAction.CallbackContext context)
         {
             _holding = true;
             timer = 0f;
+            animator.SetTrigger("Crouch");
         }
         private void EndTouch(InputAction.CallbackContext context)
         {
