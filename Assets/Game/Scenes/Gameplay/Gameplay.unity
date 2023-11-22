@@ -353,6 +353,8 @@ MonoBehaviour:
   currentLevel: {fileID: 472719096338496562}
   levels:
   - {fileID: 3745040768394436994, guid: 3184cfe10269800479070473d0b2cea7, type: 3}
+  - {fileID: 3745040768394436994, guid: 350f357dd07c97d49b90bbf8d59e7954, type: 3}
+  - {fileID: 3745040768394436994, guid: d8d79fa106fc6e842a432f3882917d74, type: 3}
 --- !u!1001 &874819517
 PrefabInstance:
   m_ObjectHideFlags: 0
