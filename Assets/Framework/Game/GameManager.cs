@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 namespace Framework.Game
@@ -7,6 +8,8 @@ namespace Framework.Game
     {
         public static GameManager Instance;
 
+        public TMP_Text textScore;
+        
         private void Awake()
         {
             if (Instance == null)
@@ -24,6 +27,8 @@ namespace Framework.Game
         {
             _score += Time.deltaTime * levelSpeed;
             score = Mathf.FloorToInt(_score);
+
+            textScore.text = score + "";
         }
     }
 }

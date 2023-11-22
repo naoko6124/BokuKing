@@ -76,10 +76,11 @@ namespace Game.Shared.Player.Scripts
         {
             _holding = true;
             timer = 0f;
-            animator.SetTrigger("Crouch");
+            animator.SetBool("Crouch", true);
         }
         private void EndTouch(InputAction.CallbackContext context)
         {
+            animator.SetBool("Crouch", false);
             _holding = false;
             Vector2 screenInput = _input.Movement.Position.ReadValue<Vector2>();
             moveInput = Camera.main.ScreenToWorldPoint(screenInput);
