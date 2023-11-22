@@ -19,6 +19,8 @@ namespace Framework.Game
         }
 
         public float levelSpeed;
+        public float maxLevelSpeed;
+        public float timeScale;
 
         public int score;
         private float _score = 0f;
@@ -29,6 +31,22 @@ namespace Framework.Game
             score = Mathf.FloorToInt(_score);
 
             textScore.text = score + "";
+            
+            if (levelSpeed < maxLevelSpeed)
+                levelSpeed += Time.deltaTime * timeScale;
+            if (levelSpeed > maxLevelSpeed)
+                levelSpeed = maxLevelSpeed;
+        }
+
+        public void SaveData()
+        {
+            PlayerPrefs.SetInt("Score", score);
+            
+            int highScore = PlayerPrefs.GetInt("HighScore", 0);
+            if (score > highScore)
+            {
+                PlayerPrefs.SetInt("HighScore", score);
+            }
         }
     }
 }

@@ -1,3 +1,4 @@
+using Framework.Game;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,7 @@ namespace Game.Scenes.Gameplay.Scripts
         {
             if (other.CompareTag("Player"))
             {
-                
+                GameManager.Instance.SaveData();
                 SceneManager.LoadScene("GameOver");
             }
         }

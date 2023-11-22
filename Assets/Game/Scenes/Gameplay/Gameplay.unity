@@ -777,6 +777,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textScore: {fileID: 211829296}
   levelSpeed: 0.5
+  maxLevelSpeed: 10
+  timeScale: 0.1
   score: 0
 --- !u!4 &1817381531
 Transform:

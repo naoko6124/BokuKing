@@ -16,13 +16,10 @@ namespace Framework.Level
             box = GetComponent<BoxCollider2D>();
         }
 
-        private void Start()
-        {
-            _rigidbody.velocity = new Vector2(0, -GameManager.Instance.levelSpeed);
-        }
-
         private void Update()
         {
+            _rigidbody.velocity = new Vector2(0, -GameManager.Instance.levelSpeed);
+            
             if (transform.position.y < -16f)
                 Destroy(gameObject);
         }
